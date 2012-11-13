@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MISSION version="200" name="Townsville_to_Palm_v200" title="Townsville to Palm and back" stage="test" >
+  <Header copyright="snagar"/>
+  <!-- 18jul2012 14:10 -->
+
+  <global_settings>
+    <dir custom_dir="townsville01" sound_dir="sound"  />
+    <start_time days="100" hours="22" min="00" sec="0" />
+    <map file_name="map0.jpg" width="957" height="638" />
+    <designer force_step_name="" />
+  </global_settings>
+
+  
+  <dynamic_objects >    
+
+  </dynamic_objects>  
+  
+  
+  
+  <briefer lat="-19.253582" long="146.770767" elev_ft="17.5" heading="14" icao="YBTL" location_adjust="1" >
+	  <desc><![CDATA[Hello Simmer.;Townsville to Palm and back is based on a short YouTube movie filmed by the pilot himself.;;The flight is based on a Cessna C208B - Grand Caravan, a GA flight.;Main objective is to transport goods from one location and back.;;The flight can be based on IFR or VFR rules (movie based on IFR).;;;Settings;========;1. Set Runway Follow terrain - Checked.;2. Set Number of Objects - Tons.;3. Set Number of trees - Filled In.;* All other settings as you see fit.;;;Enjoy Snagar]]></desc>
+  </briefer>
+  
+
+  
+   <!-- ///////////// steps   / steps   / steps   //////////////////////////// --> 
+  <steps>
+
+    <!-- OBJECTIVE 1: Palm Island ( YPAM ) -->
+    <step id="1" name="start" title="YPAM delievery" next_step="YBTL" auto_msg="" >
+      <step_goals>
+        <static_target id="1" name="YPAM Apron" group_id="-2" lat="-18.751837" long="146.579514" elev_ft="57.0"  need_to_land="1" success_distance_nm="0.02" success_elev_relative_ft="0" />
+      </step_goals>
+      
+      <step_settings>      
+
+        <step_desc>
+          <![CDATA[Fly to Palm Island and deliver the goods. Once finished to load the new goods, head back to Townsville.]]>
+        </step_desc>  
+          <weather id="0" lat="-19.253582" long="146.770767" rate_of_weather_change="0.0" rain_pct="0.0" use_real_weather="0" >
+            <weather_zone  id="1" outer_bound_nm="3" inner_bound_nm="0" vis_in_meters="30000" rate_of_weather_change="0.0" rain_pct="0.00" thunder_storm_pct="0.0"    >
+              <cloud layer="0" type="3" cloud_base_ft="4000" cloud_top_ft="6000"  />
+              <cloud layer="1" type="3" cloud_base_ft="9500" cloud_top_ft="12000"  />
+              <cloud layer="2" type="4" cloud_base_ft="14000" cloud_top_ft="15500"  />
+              <wind  layer="0" wind_alt_ft="4900" wind_dir_deg="2" wind_speed_kt="1" wind_shear_dir_deg="0" wind_shear_speed_kt="0" turbulence="0" wind_turbulence_pct="0" />
+              <wind  layer="1" wind_alt_ft="11500" wind_dir_deg="89" wind_speed_kt="2" wind_shear_dir_deg="0" wind_shear_speed_kt="0" turbulence="0" wind_turbulence_pct="0" />
+              <wind  layer="2" wind_alt_ft="16500" wind_dir_deg="85" wind_speed_kt="2" wind_shear_dir_deg="0" wind_shear_speed_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+              <Sea   temp_sea_lvl_c="19" />
+            </weather_zone> 
+   
+          </weather>  
+        <!-- Initial weight -->
+        <payload id="1" weight="25" operation="0" is_total="1" is_percent="1" />
+        <fuel id="1" weight="25" operation="0" is_total="1" is_percent="1" />
+        <map file_name="map01.jpg" width="1024" height="256" />
+      </step_settings>
+      
+
+
+      <triggers>
+
+        <!-- test flight pitch and roll. Fail mission if values are not in the correct boundries 0.6 > X > -0.6 -->
+        <!--
+        <trigger_zone name="Pitch and Roll tests" type="rad" rule="enter" fail_can_continue="0"  >
+          <trigger_rules>
+            <point  lat="-19.253582" long="146.770767" />
+            <radius length_nm="50" />
+            
+            <test_logic cs_name="check_roll"  repeat="1" fire_once="0" />
+            <test_logic cs_name="check_pitch" repeat="1" fire_once="0" />
+          </trigger_rules>
+          
+          <event id="1" name="failRoll" >
+            <msg repeat="0" mute_voice="0" ><![CDATA[You roll your plane to much;]]></msg>
+          </event>  
+           
+          <event id="1" name="failPitch" >
+            <msg repeat="0" mute_voice="0" ><![CDATA[You pitched your plane to much;]]></msg>
+          </event>  
+           
+        </trigger_zone >       
+      -->
+
+      <flight_event name="Pitch and Roll tests" type="logic" rule="logic" fail_can_continue="0"  >
+        <trigger_rules>
+          <point  lat="-19.253582" long="146.770767" />            
+          <test_logic cs_name="check_roll"  repeat="1" fire_once="0" />
+          <test_logic cs_name="check_pitch" repeat="1" fire_once="0" />
+        </trigger_rules>
+          
+        <event id="1" name="failRoll" >
+          <msg repeat="0" mute_voice="0" ><![CDATA[You roll your plane to much;]]></msg>
+        </event>  
+           
+        <event id="1" name="failPitch" >
+          <msg repeat="0" mute_voice="0" ><![CDATA[You pitched your plane to much;]]></msg>
+        </event>  
+           
+      </flight_event >       
+
+      </triggers>     
+
+ 
+      <step_rules>
+        <logic_for_success cs_name="check_mixture" repeat="1" />
+        <event id="1" name="onSuccess" >
+          <msg id="1"><![CDATA[You parked the plane. The ground operators begun unloading and loading the goods.]]></msg>       
+        </event>
+      </step_rules>  
+      
+    </step>
+    
+    <!-- OBJECTIVE 2: YBTL, Townsville -->
+    <step id="2" name="YBTL" next_step="end" auto_msg="" >   
+    
+      <step_goals>
+        <static_target id="1" name="YBTL back to ramp" group_id="-2" lat="-19.253582" long="146.770767" elev_ft="17.5"  need_to_land="1" success_distance_nm="0.02" success_elev_relative_ft="0" />        
+      </step_goals>
+      
+      <step_settings>
+        <time_adjust add_minutes="" />
+      
+        <step_desc>
+          <![CDATA[After the plane was loaded with postal and other goods, you set your plane and head to the runway.;Fly back to Townsville airport YBTL.; ]]>
+        </step_desc>  
+        
+        <!-- New Weight  -->
+        <payload id="1" weight="26" operation="0" is_total="1" is_percent="1" />
+
+        <map file_name="map02.jpg" width="1024" height="256" />
+      </step_settings>
+         
+      <triggers>
+      </triggers>
+      
+      <step_rules>
+        <logic_for_success cs_name="check_mixture" repeat="1" />
+      </step_rules> 
+      
+    </step>
+    
+   
+  
+    <!-- Ending -->
+    <step id="9999" name="end" >
+      <step_goals>
+        <static_target id="1" name="YBTL back to ramp" group_id="-2" lat="-19.253582" long="146.770767" elev_ft="17.5"  need_to_land="1" success_distance_nm="0.02" success_elev_relative_ft="0" />        
+      </step_goals>
+      <step_settings>
+        <step_desc>
+          <![CDATA[The goods were delievered. The RPT flight is finshed, well done.;Hope you enjoyed this short flight, which based on a real world route.;;Snagar;]]>
+        </step_desc>
+		<step_info_widget display_on="success" file_name="happy.png" width="512" height="256"><![CDATA[;]]></step_info_widget>		
+	
+      </step_settings>
+	  
+    </step>
+   
+  </steps>
+  
+  
+  <!-- /////////////// STORES   / inventory   / STORES   //////////////////////////// -->
+  <inventory>
+
+    
+  </inventory>
+  
+  <!-- /////////////// logic   / logic   / logic   //////////////////////////// -->
+  <logic>
+
+    <param name="kcrw_rw_status" value="0"  />  
+    <dataref dr_name="retract_gear" key="sim/aircraft/gear/acf_gear_retract" /> <!-- 0=not retractable 1=retractable -->
+  
+  
+    <dataref dr_name="mixture"  key="sim/cockpit2/engine/actuators/mixture_ratio_all"  />
+    <dataref dr_name="roll_ratio"  key="sim/flightmodel2/controls/roll_ratio"  />  <!-- Roll Ratio -->	
+    <dataref dr_name="pitch_ratio"  key="sim/flightmodel2/controls/pitch_ratio"  />  <!-- Pitch Ratio -->	
+
+
+    <dataref dr_name="airSpeed2"  key="sim/flightmodel/position/indicated_airspeed2"  />
+    <dataref dr_name="ground_speed"  key="sim/flightmodel/position/groundspeed"  />  <!-- The ground speed of the aircraft -->
+    <dataref dr_name="gearForce"  key="sim/flightmodel/forces/faxil_gear"  />
+
+	
+    <dataref dr_name="days"    key="sim/time/local_date_days"  />
+    <dataref dr_name="sec"     key="sim/time/zulu_time_sec"  />
+      
+     
+    <!-- CheckSet DREF -->  
+    <dref_check_set cs_name="check_roll" result_event="onSelf" else_event="failRoll" >
+      <if   dr_name="roll_ratio" cond="lt;" test_value="0.6" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-0.6" />  <!--   -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_pitch" result_event="onSelf" else_event="failPitch" >
+      <if   dr_name="pitch_ratio" cond="lt;" test_value="0.6" />  <!--  -->
+      <if   dr_name="pitch_ratio" cond="gt;" test_value="-0.6" />  <!--   -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_mixture" result_event="onSelf" else_event="" >
+      <if   dr_name="mixture" cond="lt;" test_value="0.09" />  <!-- if mixture is set to 0 (zero)  -->
+    </dref_check_set>
+        
+    <dref_check_set cs_name="check_onGround_and_groundSpeed" result_event="onSelf" else_event="" >
+      <if   dr_name="gearForce" cond="!=" test_value="0" />  <!-- on ground, not zero  -->
+      <if   dr_name="ground_speed" cond="lt;" test_value="2" />  <!-- ground speed should be less then 5 -->
+    </dref_check_set>    
+    
+  </logic>
+   
+</MISSION>
