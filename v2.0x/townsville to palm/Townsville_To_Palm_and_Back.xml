@@ -17,8 +17,8 @@
   
   
   
-  <briefer lat="-19.253582" long="146.770767" elev_ft="17.5" heading="14" icao="YBTL" location_adjust="1" >
-	  <desc><![CDATA[Hello Simmer.;Townsville to Palm and back is based on a short YouTube movie filmed by the pilot himself.;;The flight is based on a Cessna C208B - Grand Caravan, a GA flight.;Main objective is to transport goods from one location and back.;;The flight can be based on IFR or VFR rules (movie based on IFR).;;;Settings;========;1. Set Runway Follow terrain - Checked.;2. Set Number of Objects - Tons.;3. Set Number of trees - Filled In.;* All other settings as you see fit.;;;Enjoy Snagar]]></desc>
+  <briefer lat="-19.253582" long="146.770767" elev_ft="17.9" heading="14" icao="YBTL" location_adjust="1" >
+	  <desc><![CDATA[Hello Simmer.;Townsville to Palm and back is based on a short YouTube movie filmed by the pilot himself (see bellow for URL).;;The flight is based on a Cessna C208B - Grand Caravan, a GA flight.;Main objective is to transport goods from one location and back.;;The flight can be based on IFR or VFR rules (movie based on IFR).;;;Settings;========;1. Set Runway Follow terrain - Checked.;2. Set Number of Objects - Tons.;3. Set Number of trees - Filled In.;* All other settings as you see fit.;;Movie URL: http://youtu.be/dd6MQTJz0D4?hd=1;;Enjoy Snagar]]></desc>
   </briefer>
   
 
@@ -35,11 +35,11 @@
       <step_settings>      
 
         <step_desc>
-          <![CDATA[Fly to Palm Island and deliver the goods. Once finished to load the new goods, head back to Townsville.]]>
+          <![CDATA[Fly to Palm Island and deliver the goods.;Flight restrictions: Do not roll plane over 27deg;or;Pitch plane for more then: 15deg.;!!! Mission will fail !!!;;Once you arrived to Palm Island you will be re-loaded with new goods.;;Good Luck!!;]]>
         </step_desc>  
           <weather id="0" lat="-19.253582" long="146.770767" rate_of_weather_change="0.0" rain_pct="0.0" use_real_weather="0" >
             <weather_zone  id="1" outer_bound_nm="3" inner_bound_nm="0" vis_in_meters="30000" rate_of_weather_change="0.0" rain_pct="0.00" thunder_storm_pct="0.0"    >
-              <cloud layer="0" type="3" cloud_base_ft="4000" cloud_top_ft="6000"  />
+              <cloud layer="0" type="2" cloud_base_ft="4000" cloud_top_ft="6000"  />
               <cloud layer="1" type="3" cloud_base_ft="9500" cloud_top_ft="12000"  />
               <cloud layer="2" type="4" cloud_base_ft="14000" cloud_top_ft="15500"  />
               <wind  layer="0" wind_alt_ft="4900" wind_dir_deg="2" wind_speed_kt="1" wind_shear_dir_deg="0" wind_shear_speed_kt="0" turbulence="0" wind_turbulence_pct="0" />
@@ -58,28 +58,6 @@
 
 
       <triggers>
-
-        <!-- test flight pitch and roll. Fail mission if values are not in the correct boundries 0.6 > X > -0.6 -->
-        <!--
-        <trigger_zone name="Pitch and Roll tests" type="rad" rule="enter" fail_can_continue="0"  >
-          <trigger_rules>
-            <point  lat="-19.253582" long="146.770767" />
-            <radius length_nm="50" />
-            
-            <test_logic cs_name="check_roll"  repeat="1" fire_once="0" />
-            <test_logic cs_name="check_pitch" repeat="1" fire_once="0" />
-          </trigger_rules>
-          
-          <event id="1" name="failRoll" >
-            <msg repeat="0" mute_voice="0" ><![CDATA[You roll your plane to much;]]></msg>
-          </event>  
-           
-          <event id="1" name="failPitch" >
-            <msg repeat="0" mute_voice="0" ><![CDATA[You pitched your plane to much;]]></msg>
-          </event>  
-           
-        </trigger_zone >       
-      -->
 
       <flight_event name="Pitch and Roll tests" type="logic" rule="logic" fail_can_continue="0"  >
         <trigger_rules>
@@ -121,7 +99,7 @@
         <time_adjust add_minutes="" />
       
         <step_desc>
-          <![CDATA[After the plane was loaded with postal and other goods, you set your plane and head to the runway.;Fly back to Townsville airport YBTL.; ]]>
+          <![CDATA[After the plane was loaded with postal and other goods, you set your plane and head to the runway.;Fly back to Townsville airport YBTL.;;Flight restrictions: Do not roll plane over 25deg;or;Pitch plane for more then: 12deg.;!!! Mission will fail !!!; ]]>
         </step_desc>  
         
         <!-- New Weight  -->
@@ -131,6 +109,22 @@
       </step_settings>
          
       <triggers>
+       <flight_event name="Pitch and Roll tests" type="logic" rule="logic" fail_can_continue="0"  >
+          <trigger_rules>
+            <point  lat="-19.253582" long="146.770767" />            
+            <test_logic cs_name="check_roll2"  repeat="1" fire_once="0" />
+            <test_logic cs_name="check_pitch" repeat="1" fire_once="0" />
+          </trigger_rules>
+            
+          <event id="1" name="failRoll" >
+            <msg repeat="0" mute_voice="0" ><![CDATA[You roll your plane to much;]]></msg>
+          </event>  
+             
+          <event id="1" name="failPitch" >
+            <msg repeat="0" mute_voice="0" ><![CDATA[You pitched your plane to much;]]></msg>
+          </event>  
+             
+        </flight_event >             
       </triggers>
       
       <step_rules>
@@ -148,9 +142,9 @@
       </step_goals>
       <step_settings>
         <step_desc>
-          <![CDATA[The goods were delievered. The RPT flight is finshed, well done.;Hope you enjoyed this short flight, which based on a real world route.;;Snagar;]]>
+          <![CDATA[Hope you enjoyed this short flight, which based on a real world route.;;Snagar;]]>
         </step_desc>
-		<step_info_widget display_on="success" file_name="happy.png" width="512" height="256"><![CDATA[;]]></step_info_widget>		
+		<step_info_widget display_on="success" file_name="happy.png" width="512" height="256"><![CDATA[The goods were delievered. The RPT flight is finshed, well done;]]></step_info_widget>		
 	
       </step_settings>
 	  
@@ -173,8 +167,8 @@
   
   
     <dataref dr_name="mixture"  key="sim/cockpit2/engine/actuators/mixture_ratio_all"  />
-    <dataref dr_name="roll_ratio"  key="sim/flightmodel2/controls/roll_ratio"  />  <!-- Roll Ratio -->	
-    <dataref dr_name="pitch_ratio"  key="sim/flightmodel2/controls/pitch_ratio"  />  <!-- Pitch Ratio -->	
+    <dataref dr_name="roll_ratio"  key="sim/cockpit/gyros/phi_vac_ind_deg"  />  <!-- Roll Ratio -->	
+    <dataref dr_name="pitch_ratio"  key="sim/cockpit/gyros/the_vac_ind_deg"  />  <!-- Pitch Ratio -->	
 
 
     <dataref dr_name="airSpeed2"  key="sim/flightmodel/position/indicated_airspeed2"  />
@@ -185,16 +179,36 @@
     <dataref dr_name="days"    key="sim/time/local_date_days"  />
     <dataref dr_name="sec"     key="sim/time/zulu_time_sec"  />
       
-     
+
+    <param name="T1"          value="27"          return="number" />
+    <param name="T2"          value="15"          return="number" />
+    <param_expression name="MinusOne"    value="1"     return="number" />
+    <param_expression name="expT1" value="#T1*#MinusOne" return="number" />
+    <param_expression name="expT2" value="#T2*#MinusOne" return="number" />
+    <param_expression name="expRollDref" value="#roll_ratio" return="number" />
+    
+    <!-- Param Check -->
+    
+    <param_check cs_name="param_check_roll" result_event="onSelf" else_event="failRoll" >
+      <if_param lValue="#roll_ratio" cond="lt;" rValue="#T1" />      
+      <if_param lValue="#roll_ratio" cond="gt;" rValue="#expT1" />      
+    </param_check>    
+    
+    
     <!-- CheckSet DREF -->  
     <dref_check_set cs_name="check_roll" result_event="onSelf" else_event="failRoll" >
-      <if   dr_name="roll_ratio" cond="lt;" test_value="0.6" />  <!--  -->
-      <if   dr_name="roll_ratio" cond="gt;" test_value="-0.6" />  <!--   -->
+      <if   dr_name="roll_ratio" cond="lt;" test_value="27" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-27" />  <!--   -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_roll2" result_event="onSelf" else_event="failRoll" >
+      <if   dr_name="roll_ratio" cond="lt;" test_value="25" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-25" />  <!--   -->
     </dref_check_set>
     
     <dref_check_set cs_name="check_pitch" result_event="onSelf" else_event="failPitch" >
-      <if   dr_name="pitch_ratio" cond="lt;" test_value="0.6" />  <!--  -->
-      <if   dr_name="pitch_ratio" cond="gt;" test_value="-0.6" />  <!--   -->
+      <if   dr_name="pitch_ratio" cond="lt;" test_value="12" />  <!--  -->
+      <if   dr_name="pitch_ratio" cond="gt;" test_value="-12" />  <!--   -->
     </dref_check_set>
     
     <dref_check_set cs_name="check_mixture" result_event="onSelf" else_event="" >
