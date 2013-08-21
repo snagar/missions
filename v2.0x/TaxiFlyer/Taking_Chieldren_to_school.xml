@@ -7,7 +7,7 @@
     <dir custom_dir="alaska_taxi01" sound_dir="sound"  />
     <start_time days="100" hours="22" min="00" sec="0" />
     <!-- map file_name="map1.jpg" width="957" height="638" /  -->
-    <designer force_step_name="" />
+    <designer force_step_name="PABE" />
   </global_settings>
 
   
@@ -53,10 +53,10 @@
 
         <trigger_zone group_id="11" type="poly" rule="enter" fail_can_continue="1">
           <trigger_rules>
-            <point    lat="60.214718" long="-162.042786" />
-            <point    lat="60.214600" long="-162.041397" />
-            <point    lat="60.213615" long="-162.041718" />
-            <point    lat="60.213524" long="-162.043274" />
+            <point    lat="60.214319" long="-162.041533" />
+            <point    lat="60.214414" long="-162.042516" />
+            <point    lat="60.214723" long="-162.042251" />
+            <point    lat="60.214611" long="-162.041724" />
             
 
           </trigger_rules>
@@ -113,7 +113,8 @@
           <![CDATA[Head to Bethel airport (PABE) and deliever safly the students.;  ]]>
         </step_desc>  
         
-        <map file_name="map02.jpg" width="1024" height="256" />
+        <map file_name="paee_pabe.jpg" width="512" height="128" />
+
       </step_settings>
          
       <triggers>
