@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MISSION version="200" name="TakingChildSchool_v200" title="High School Taxi Flyer" stage="test" >
+  <Header copyright="snagar"/>
+  <!-- 18jul2012 14:10 -->
+
+  <global_settings>
+    <dir custom_dir="alaska_taxi01" sound_dir="sound"  />
+    <start_time days="100" hours="22" min="00" sec="0" />
+    <!-- map file_name="map1.jpg" width="957" height="638" /  -->
+    <designer force_step_name="" />
+  </global_settings>
+
+  
+  <dynamic_objects >    
+
+  </dynamic_objects>  
+  
+  
+  <!-- Chefornak PACK -->
+  <briefer lat="60.157494" long="-164.284073" elev_ft="46" heading="161" icao="PACK" location_adjust="1" >
+	  <desc><![CDATA[Hello Simmer.;;Your mission is to fly the usual route of high school kids from chefornak to Bethel (PABE).;You will need to stop at Eak (PAEE), pick 4 students (Use inventory widget) and fly them to Bethel.;.;;Enjoy, Snagar!]]></desc>
+  </briefer>
+  
+
+  
+   <!-- ///////////// steps   / steps   / steps   //////////////////////////// --> 
+  <steps>
+
+    <!-- OBJECTIVE 1: Eak airport - PAEE -->
+    <step id="1" name="start" title="to Eak" next_step="PABE" auto_msg="" >
+      <step_goals>
+        <area_target id="1" name="eak airport" group_id="11" need_to_land="1" />
+      </step_goals>
+      
+      <step_settings>      
+
+        <step_desc>
+          <![CDATA[Fly to Eak airport and pick the rest of the high school kids. Though this is another weekly rutine, remember it envolvs chieldrens so fly safe.;Restrictions, you should not pitch the plain more then 25 degrees or mission will fail.;;Good Luck!!;]]>
+        </step_desc>  
+
+        <!-- Initial weight -->
+        <payload id="1" weight="15" operation="0" is_total="1" is_percent="1" />
+        <fuel id="1" weight="35" operation="0" is_total="1" is_percent="1" />
+        <map file_name="pack_paee.png" width="699" height="128" />
+        
+        <step_info_widget display_on="success" file_name="info_01.jpg" width="285" height="256"><![CDATA[You wait until students were seated by the help of the ground team.;]]></step_info_widget>
+        
+      </step_settings>
+      
+
+
+      <triggers>
+
+        <trigger_zone group_id="11" type="poly" rule="enter" fail_can_continue="1">
+          <trigger_rules>
+            <point    lat="60.214718" long="-162.042786" />
+            <point    lat="60.214600" long="-162.041397" />
+            <point    lat="60.213615" long="-162.041718" />
+            <point    lat="60.213524" long="-162.043274" />
+            
+
+          </trigger_rules>
+
+          <event id="1" name="onEnter">
+            <msg repeat="1" mute_voice="0" ><![CDATA[Park the plane and pick the students.; Do not postpone to much, and continue to Bethel (PABE);]]></msg>
+          </event>
+
+
+        </trigger_zone>
+        
+      
+      
+      <!-- flight_event name="Pitch and Roll tests" type="logic" rule="logic" fail_can_continue="0"  >
+        <trigger_rules>
+          <point  lat="-19.253582" long="146.770767" />            
+          <test_logic cs_name="check_roll"  repeat="1" fire_once="0" />
+          <test_logic cs_name="check_pitch" repeat="1" fire_once="0" />
+        </trigger_rules>
+          
+        <event id="1" name="failRoll" >
+          <msg repeat="0" mute_voice="0" ><![CDATA[You roll your plane to much;]]></msg>
+        </event>  
+           
+        <event id="1" name="failPitch" >
+          <msg repeat="0" mute_voice="0" ><![CDATA[You pitched your plane to much;]]></msg>
+        </event>  
+           
+      </flight_event -->       
+
+      </triggers>     
+
+ 
+      <step_rules>
+        <logic_for_success cs_name="check_onGround_and_groundSpeed" repeat="1" />
+        <event id="1" name="onSuccess" >
+          <msg id="1"><![CDATA[The students are now seated in the plane and prepare themselves to the flight. Make last preparations and roll plane to the runway, you are clear to fly.;]]></msg>       
+        </event>
+      </step_rules>  
+      
+    </step>
+    
+    <!-- OBJECTIVE 2: PABE Bethel -->
+    <step id="2" name="PABE" next_step="end" auto_msg="" >   
+    
+      <step_goals>
+        <area_target id="1" name="Bethel airport" group_id="21" need_to_land="1" />        
+      </step_goals>
+      
+      <step_settings>
+        <time_adjust add_minutes="" />
+      
+        <step_desc>
+          <![CDATA[Head to Bethel airport (PABE) and deliever safly the students.;  ]]>
+        </step_desc>  
+        
+        <map file_name="map02.jpg" width="1024" height="256" />
+      </step_settings>
+         
+      <triggers>
+
+        <trigger_zone group_id="21" type="poly" rule="enter" fail_can_continue="1">
+          <trigger_rules>
+            <point    lat="60.782536" long="-161.840088" />
+            <point    lat="60.782024" long="-161.840515" />
+            <point    lat="60.781910" long="-161.839798" />
+            <point    lat="60.782467" long="-161.839355" />
+
+            
+
+          </trigger_rules>
+
+          <event id="1" name="onEnter">
+            <msg repeat="1" mute_voice="0" ><![CDATA[Park the plane near the school bus, and shut down the engine.;]]></msg>
+          </event>
+
+
+        </trigger_zone>
+      </triggers>  
+      
+      <step_rules>
+        <logic_for_success cs_name="check_mixture" repeat="1" />
+      </step_rules> 
+      
+    </step>
+    
+  
+    <!-- Ending -->
+    <step id="9999" name="end" >
+      <step_goals>
+        <static_target id="1" name="Bethel airport" group_id="-2" lat="62.071442" long="-162.761215" elev_ft="0"  need_to_land="1" success_distance_nm="" success_elev_relative_ft="0" />        
+      </step_goals>
+      <step_settings>
+        <step_desc>
+          <![CDATA[Written by Snagar;]]>
+        </step_desc>
+	
+      </step_settings>
+	  
+    </step>
+   
+  </steps>
+  
+  
+  <!-- /////////////// STORES   / inventory   / STORES   //////////////////////////// -->
+  <inventory>
+
+    
+  </inventory>
+  
+  <!-- /////////////// logic   / logic   / logic   //////////////////////////// -->
+  <logic>
+
+    <param name="kcrw_rw_status" value="0"  />  
+    <dataref dr_name="retract_gear" key="sim/aircraft/gear/acf_gear_retract" /> <!-- 0=not retractable 1=retractable -->
+  
+    <dataref dr_name="mixture"  key="sim/cockpit2/engine/actuators/mixture_ratio_all"  />
+    <dataref dr_name="roll_ratio"  key="sim/cockpit/gyros/phi_vac_ind_deg"  />  <!-- Roll Ratio -->	
+    <dataref dr_name="pitch_ratio"  key="sim/cockpit/gyros/the_vac_ind_deg"  />  <!-- Pitch Ratio -->	
+
+    <dataref dr_name="airSpeed2"  key="sim/flightmodel/position/indicated_airspeed2"  />
+    <dataref dr_name="ground_speed"  key="sim/flightmodel/position/groundspeed"  />  <!-- The ground speed of the aircraft -->
+    <dataref dr_name="gearForce"  key="sim/flightmodel/forces/faxil_gear"  />
+	
+    <dataref dr_name="days"    key="sim/time/local_date_days"  />
+    <dataref dr_name="sec"     key="sim/time/zulu_time_sec"  />
+
+    
+    <!-- Param Check -->  
+    
+    
+    <!-- CheckSet DREF -->  
+    <dref_check_set cs_name="check_roll" result_event="onSelf" else_event="failRoll" >
+      <if   dr_name="roll_ratio" cond="lt;" test_value="27" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-27" />  <!--   -->
+      <if   dr_name="gearForce" cond="=" test_value="0" />  <!-- on air  -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_roll2" result_event="onSelf" else_event="failRoll" >
+      <if   dr_name="roll_ratio" cond="lt;" test_value="25" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-25" />  <!--   -->
+      <if   dr_name="gearForce" cond="=" test_value="0" />  <!-- on air  -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_pitch" result_event="onSelf" else_event="failPitch" >
+      <if   dr_name="pitch_ratio" cond="lt;" test_value="12" />  <!--  -->
+      <if   dr_name="pitch_ratio" cond="gt;" test_value="-12" />  <!--   -->
+      <if   dr_name="gearForce" cond="=" test_value="0" />  <!-- on air  -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_mixture" result_event="onSelf" else_event="" >
+      <if   dr_name="mixture" cond="lt;" test_value="0.09" />  <!-- if mixture is set to 0 (zero)  -->
+    </dref_check_set>
+        
+    <dref_check_set cs_name="check_onGround_and_groundSpeed" result_event="onSelf" else_event="" >
+      <if   dr_name="gearForce" cond="!=" test_value="0" />  <!-- on ground, not zero  -->
+      <if   dr_name="ground_speed" cond="lt;" test_value="2" />  <!-- ground speed should be less then 5 -->
+    </dref_check_set>    
+    
+  </logic>
+   
+</MISSION>
