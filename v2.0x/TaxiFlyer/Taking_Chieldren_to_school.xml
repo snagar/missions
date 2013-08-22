@@ -7,7 +7,7 @@
     <dir custom_dir="alaska_taxi01" sound_dir="sound"  />
     <start_time days="100" hours="22" min="00" sec="0" />
     <!-- map file_name="map1.jpg" width="957" height="638" /  -->
-    <designer force_step_name="PABE" />
+    <designer force_step_name="" />
   </global_settings>
 
   
@@ -140,6 +140,8 @@
       
       <step_rules>
         <logic_for_success cs_name="check_mixture" repeat="1" />
+        <logic_for_success cs_name="check_kids_arrive_to_bethel" repeat="1" />
+       
       </step_rules> 
       
     </step>
@@ -164,7 +166,15 @@
   
   <!-- /////////////// STORES   / inventory   / STORES   //////////////////////////// -->
   <inventory>
+    <store name="PACK" display_name="Chefornak Bus" lat="60.157425" long="-164.283569" distance_to_open_nm="0.02">
+      <item name="Pack Kid" barcode="pack_kids" weight_kg="44" amount="3" />
+    </store>
+      
+    <store name="EEK" display_name="Eak Bus" lat="60.214523" long="-162.041779" distance_to_open_nm="0.02">
+      <item name="Eak Kid" barcode="eek_kids" weight_kg="38" amount="2" />
+    </store>
 
+    <store name="PABE" display_name="Bethel Bus" lat="60.782269" long="-161.839996" distance_to_open_nm="0.015"/>
     
   </inventory>
   
@@ -186,8 +196,11 @@
     <dataref dr_name="sec"     key="sim/time/zulu_time_sec"  />
 
     
-    <!-- Param Check -->  
-    
+    <!-- Inventory Check -->  
+    <inv_check_set cs_name="check_kids_arrive_to_bethel" result_event="onSuccess" >
+      <if br_name="pack_kids" cond="=" test_value="3" store="PABE" />
+      <if br_name="eek_kids"  cond="=" test_value="2" store="PABE" />      
+    </inv_check_set>
     
     <!-- CheckSet DREF -->  
     <dref_check_set cs_name="check_roll" result_event="onSelf" else_event="failRoll" >
