@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MISSION version="200" name="TakingChildSchool_lvl2_v200" title="High School Taxi Flyer - harder mode" stage="" >
+  <Header copyright="snagar"/>
+  <!-- 18jul2012 14:10 -->
+
+  <global_settings>
+    <dir custom_dir="alaska_taxi01" sound_dir="sound"  />
+    <start_time days="100" hours="22" min="00" sec="0" />
+    <!-- map file_name="map1.jpg" width="957" height="638" /  -->
+    <designer force_step_name="" />
+  </global_settings>
+
+  
+  <dynamic_objects >    
+
+  </dynamic_objects>  
+  
+  
+  <!-- Chefornak PACK -->
+  <briefer lat="60.157494" long="-164.284073" elev_ft="46" heading="161" icao="PACK" location_adjust="1" >
+	  <desc><![CDATA[Hello Simmer.;The following mission added custom weather conditions to make flying more chalenging.;You can always modify the mission file and send me your ideas.;;Your mission is to fly the usual route of high school kids from chefornak to Bethel (PABE), You will need to stop at Eak (PAEE).;;We will use the Inventory widget to transfer the kids from their transportation to the plane.;Your orders are:;1. Pick 3 kids from Chefornak airport.;2. Pick 2 kids from Eak airport (not the sea port).;3. Fly to Bethel airport and deliever the kids safly to the waiting transportaion (user inventory widget).;4. Do not roll plane more than 27 degrees.;;Special settings:;============;1. change Graphical settings, and uncheck "Runways follow terrain counters".;2. Download custom scenery from: http://www.unex-planedapps.com/downloads.htm.;Download sceneries: ERAlaska Destinations (both of them).;You can use the maps they add to their scenery.  ;;Enjoy, Snagar!]]></desc>
+  </briefer>
+  
+
+  
+   <!-- ///////////// steps   / steps   / steps   //////////////////////////// --> 
+  <steps>
+
+    <!-- OBJECTIVE 1: Eak airport - PAEE -->
+    <step id="1" name="first" title="to Eak" next_step="PABE" auto_msg="" >
+      <step_goals>
+        <area_target id="1" name="eak airport" group_id="11" need_to_land="1" />
+      </step_goals>
+      
+     
+      
+      <step_settings>      
+
+        <step_desc>
+          <![CDATA[Fly to Eak airport and pick the rest of the high school kids.;]]>
+          
+        </step_desc>  
+
+        <!-- Initial weight -->
+        <payload id="1" weight="15" operation="0" is_total="1" is_percent="1" />
+        <fuel id="1" weight="35" operation="0" is_total="1" is_percent="1" />
+        <map file_name="pack_paee.png" width="699" height="128" />
+        
+        
+        <weather id="1" lat="60.157494" long="-164.284073" use_real_weather="0">
+          <weather_zone  id="1" outer_bound_nm="10" inner_bound_nm="0" vis_in_meters="8000" rate_of_weather_change="0.0" rain_pct="0.02" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="128" cloud_top_ft="3000"  />
+            <cloud layer="1" type="2" cloud_base_ft="5300" cloud_top_ft="13180"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="6500" win_dir_deg="100" wind_speed_kt="10" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="280" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="290" wind_speed_kt="5" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+            <!-- Sea   wave_amp="" wave_length="" wave_speed="" wave_dir="" bar_sea_lvl ="30.15" temp_sea_lvl_c="30"/ -->
+          </weather_zone>
+          <weather_zone  id="1" outer_bound_nm="15" inner_bound_nm="10" vis_in_meters="9000" rate_of_weather_change="0.01" rain_pct="0.02" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="500" cloud_top_ft="2800"  />
+            <cloud layer="1" type="2" cloud_base_ft="5300" cloud_top_ft="13180"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="6400" win_dir_deg="50" wind_speed_kt="9" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="287" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="293" wind_speed_kt="5" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+          </weather_zone>
+          <weather_zone  id="1" outer_bound_nm="20" inner_bound_nm="15" vis_in_meters="9500" rate_of_weather_change="0.01" rain_pct="0.02" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="780" cloud_top_ft="2700"  />
+            <cloud layer="1" type="2" cloud_base_ft="5300" cloud_top_ft="13000"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="6300" win_dir_deg="30" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="287" wind_speed_kt="4" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="293" wind_speed_kt="4" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+          </weather_zone>
+        </weather>         
+        
+        
+        <weather id="2" lat="60.214319" long="-162.041533" use_real_weather="0">
+          <weather_zone  id="1" outer_bound_nm="10" inner_bound_nm="0" vis_in_meters="10300" rate_of_weather_change="0.0" rain_pct="0.1" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="1500" cloud_top_ft="2500"  />
+            <cloud layer="1" type="2" cloud_base_ft="4700" cloud_top_ft="12100"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="5300" win_dir_deg="290" wind_speed_kt="15" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="280" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="290" wind_speed_kt="5" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+            <!-- Sea   wave_amp="" wave_length="" wave_speed="" wave_dir="" bar_sea_lvl ="30.15" temp_sea_lvl_c="30"/ -->
+          </weather_zone>
+          <weather_zone  id="1" outer_bound_nm="15" inner_bound_nm="10" vis_in_meters="10300" rate_of_weather_change="0.0" rain_pct="0.2" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="1200" cloud_top_ft="2600"  />
+            <cloud layer="1" type="2" cloud_base_ft="4800" cloud_top_ft="11290"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="5300" win_dir_deg="0" wind_speed_kt="10" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="280" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="290" wind_speed_kt="5" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+            <!-- Sea   wave_amp="" wave_length="" wave_speed="" wave_dir="" bar_sea_lvl ="30.15" temp_sea_lvl_c="30"/ -->
+          </weather_zone>
+        </weather>
+        
+        <!-- step_info_widget display_on="success" file_name="info_01.jpg" width="285" height="256"><![CDATA[You wait until students were seated by the help of the ground team.;]]></step_info_widget -->
+        
+      </step_settings>
+      
+
+
+      <triggers>
+
+        <trigger_zone group_id="11" type="poly" rule="enter" fail_can_continue="1">
+          <trigger_rules>
+            <point    lat="60.214319" long="-162.041533" />
+            <point    lat="60.214414" long="-162.042516" />
+            <point    lat="60.214723" long="-162.042251" />
+            <point    lat="60.214611" long="-162.041724" />
+            
+
+          </trigger_rules>
+
+          <event id="1" name="onEnter">
+            <msg repeat="1" mute_voice="0" ><![CDATA[Park the plane and pick the students.; Do not postpone to much, and continue to Bethel (PABE);]]></msg>
+          </event>
+
+
+        </trigger_zone>
+        
+        <trigger_zone name="is_pack_students_are_in_plane" type="poly" rule="enter" fail_can_continue="1" >
+          <trigger_rules>
+          <!--
+            <point    lat="60.157342" long="-164.284012" />
+            <radius length_nm="0.02" />            
+            -->
+
+            <point    lat="60.157246" long="-164.284363" />
+            <point    lat="60.156796" long="-164.284119" />
+            <point    lat="60.156670" long="-164.284821" />
+            <point    lat="60.157223" long="-164.285172" />
+
+            <test_logic id="1" cs_name="check_pack_kids_not_on_plane" fire_once="1" />
+
+          </trigger_rules>
+          
+          
+          <event id="1" name="onSuccess">
+            <msg repeat="0" mute_voice="0" ><![CDATA[Have you picked all students from Chefornak. Please check.;]]></msg>
+          </event>      
+             
+
+        </trigger_zone>      
+      
+        <trigger_zone name="trig_prepare_to_fly_from_pack" type="poly" rule="enter" fail_can_continue="1" >
+          <trigger_rules>
+
+
+            <point    lat="60.157246" long="-164.284363" />
+            <point    lat="60.156796" long="-164.284119" />
+            <point    lat="60.156670" long="-164.284821" />
+            <point    lat="60.157223" long="-164.285172" />
+
+            <test_logic id="1" cs_name="check_pack_kids_on_plane" repeat="1" fire_once="1" />
+
+          </trigger_rules>
+          
+          
+          <event id="1" name="onSuccess">
+            <msg repeat="0" mute_voice="0" ><![CDATA[You roll the plane to the runway and inform passengers of the departure.;]]></msg>
+          </event>      
+             
+
+        </trigger_zone>      
+      
+      <flight_event name="Roll test" type="logic" rule="logic" fail_can_continue="0"  >
+        <trigger_rules>
+          <test_logic cs_name="check_roll"  repeat="1" fire_once="0" />
+          <!-- test_logic cs_name="check_pitch" repeat="1" fire_once="0" /  -->
+        </trigger_rules>
+          
+        <event id="1" name="failRoll" >
+          <msg repeat="0" mute_voice="0" ><![CDATA[You roll your plane to much;]]></msg>
+        </event>  
+           
+        <!-- event id="1" name="failPitch" >
+          <msg repeat="0" mute_voice="0" ><![CDATA[You pitched your plane to much;]]></msg>
+        </event -->  
+           
+      </flight_event>       
+
+      </triggers>     
+
+ 
+      <step_rules>
+        <logic_for_success cs_name="check_eek_kids_on_plane" repeat="1" />
+        <logic_for_success cs_name="check_onGround_and_groundSpeed" repeat="1" />
+        
+        <event id="1" name="onSuccess" >
+          <msg id="1"><![CDATA[The students are now seated in the plane and prepare themselves to the flight. Make last preparations and roll plane to the runway, you are clear to fly.;]]></msg>       
+        </event>
+        
+      </step_rules>  
+      
+    </step>
+    
+    <!-- OBJECTIVE 2: PABE Bethel -->
+    <step id="2" name="PABE" next_step="end" auto_msg="" >   
+    
+      <step_goals>
+        <area_target id="1" name="Bethel airport" group_id="21" need_to_land="1" />        
+      </step_goals>
+      
+      <step_settings>
+        <time_adjust add_minutes="" />
+      
+        <step_desc>
+          <![CDATA[Head to Bethel airport (PABE) and deliever safly the students.;  ]]>
+        </step_desc>  
+        
+        <map file_name="paee_pabe.jpg" width="512" height="128" />
+
+        <weather id="3" lat="60.209465" long="-162.045273" use_real_weather="0">
+          <weather_zone  id="1" outer_bound_nm="10" inner_bound_nm="0" vis_in_meters="10500" rate_of_weather_change="0.0" rain_pct="0.02" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="1500" cloud_top_ft="2500"  />
+            <cloud layer="1" type="2" cloud_base_ft="4700" cloud_top_ft="12100"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="5300" win_dir_deg="290" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="280" wind_speed_kt="7" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="290" wind_speed_kt="5" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+            <!-- Sea   wave_amp="" wave_length="" wave_speed="" wave_dir="" bar_sea_lvl ="30.15" temp_sea_lvl_c="30"/ -->
+          </weather_zone>
+          <weather_zone  id="2" outer_bound_nm="35" inner_bound_nm="10" vis_in_meters="15000" rate_of_weather_change="0.0" rain_pct="0.1" thunder_storm_pct="0.01"    >
+            <cloud layer="0" type="3" cloud_base_ft="2400" cloud_top_ft="3000"  />
+            <cloud layer="1" type="2" cloud_base_ft="6800" cloud_top_ft="11290"  />
+            <cloud layer="2" type="6" cloud_base_ft="15000" cloud_top_ft="19000"  />
+            <wind  layer="0" wind_alt_ft="5300" win_dir_deg="310" wind_speed_kt="10" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="1" wind_alt_ft="11000" win_dir_deg="286" wind_speed_kt="8" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0" wind_turbulence_pct="0" />
+            <wind  layer="2" wind_alt_ft="16500" win_dir_deg="276" wind_speed_kt="5" wind_shear_dir_deg="0" wind_shear_spd_kt="0" turbulence="0.1" wind_turbulence_pct="0" />
+            <!-- Sea   wave_amp="" wave_length="" wave_speed="" wave_dir="" bar_sea_lvl ="30.15" temp_sea_lvl_c="30"/ -->
+          </weather_zone>
+        </weather>
+        
+        
+      </step_settings>
+         
+      <triggers>
+
+        <trigger_zone group_id="21" type="poly" rule="enter" fail_can_continue="1">
+          <trigger_rules>
+            <point    lat="60.782536" long="-161.840088" />
+            <point    lat="60.782024" long="-161.840515" />
+            <point    lat="60.781910" long="-161.839798" />
+            <point    lat="60.782467" long="-161.839355" />
+
+          </trigger_rules>
+
+          <event id="1" name="onEnter">
+            <msg repeat="1" mute_voice="0" ><![CDATA[Park the plane near the school bus, and shut down the engine.;]]></msg>
+          </event>
+
+        </trigger_zone>
+        
+        
+        <!-- Fail engine 0 -->
+        <trigger_zone name="fail_engine_0" type="rad" rule="enter" fail_can_continue="1" >
+          <trigger_rules>
+            <point  lat="60.782810" long="-161.839294" />
+            <radius length_nm="10" />            
+          </trigger_rules>
+          
+          
+          <event name="onEnter">
+            <msg repeat="0" mute_voice="0" ><![CDATA[You are nearing Bethel, check plane status;]]></msg>
+            <logic_apply cs_name="check_fail_eng0" />
+          </event>      
+             
+        </trigger_zone>         
+        
+      </triggers>  
+      
+      <step_rules>
+        <logic_for_success cs_name="check_mixture" repeat="1" />
+        <logic_for_success cs_name="check_kids_arrive_to_bethel" repeat="1" />
+       
+      </step_rules> 
+      
+    </step>
+    
+  
+    <!-- Ending -->
+    <step id="9999" name="end" >
+      <step_goals>
+        <static_target id="1" name="Bethel airport" group_id="-2" lat="62.071442" long="-162.761215" elev_ft="0"  need_to_land="1" success_distance_nm="" success_elev_relative_ft="0" />        
+      </step_goals>
+      <step_settings>
+        <step_desc>
+          <![CDATA[Mission Ends.;Written by Snagar;]]>
+        </step_desc>
+	
+		    <step_info_widget display_on="success" file_name="finish01.png" width="512" height="256"><![CDATA[All the students and pupil reach the transportaion in time.;They wave goodby and step onto the bus.;Just another week of taxi flyer...;;]]></step_info_widget>		
+  
+      </step_settings>
+	  
+    </step>
+   
+  </steps>
+  
+  
+  <!-- /////////////// STORES   / inventory   / STORES   //////////////////////////// -->
+  <inventory>
+    <store name="PACK" display_name="Chefornak Bus" lat="60.157425" long="-164.283569" distance_to_open_nm="0.037">
+      <item name="Pack Kid" barcode="pack_kids" weight_kg="44" amount="3" />
+    </store>
+      
+    <store name="EEK" display_name="Eak Bus" lat="60.214523" long="-162.041779" distance_to_open_nm="0.02">
+      <item name="Eak Kid" barcode="eek_kids" weight_kg="38" amount="2" />
+    </store>
+
+    <store name="PABE" display_name="Bethel Bus" lat="60.782269" long="-161.839996" distance_to_open_nm="0.015"/>
+    
+  </inventory>
+  
+  <!-- /////////////// logic   / logic   / logic   //////////////////////////// -->
+  <logic>
+
+    <param name="kcrw_rw_status" value="0"  />  
+    <dataref dr_name="retract_gear" key="sim/aircraft/gear/acf_gear_retract" /> <!-- 0=not retractable 1=retractable -->
+  
+    <dataref dr_name="mixture"  key="sim/cockpit2/engine/actuators/mixture_ratio_all"  />
+    <dataref dr_name="roll_ratio"  key="sim/cockpit/gyros/phi_vac_ind_deg"  />  <!-- Roll Ratio -->	
+    <dataref dr_name="pitch_ratio"  key="sim/cockpit/gyros/the_vac_ind_deg"  />  <!-- Pitch Ratio -->	
+
+    <dataref dr_name="airSpeed2"  key="sim/flightmodel/position/indicated_airspeed2"  />
+    <dataref dr_name="ground_speed"  key="sim/flightmodel/position/groundspeed"  />  <!-- The ground speed of the aircraft -->
+    <dataref dr_name="gearForce"  key="sim/flightmodel/forces/faxil_gear"  />
+	
+    <dataref dr_name="days"    key="sim/time/local_date_days"  />
+    <dataref dr_name="sec"     key="sim/time/zulu_time_sec"  />
+    
+    <dataref dr_name="fail_oil_presure_0"     key="sim/operation/failures/rel_eng_lo0"  />
+
+    
+    
+    <!-- Inventory Check -->  
+    <inv_check_set cs_name="check_kids_arrive_to_bethel" result_event="onSelf" >
+      <if br_name="pack_kids" cond="=" test_value="3" store="PABE" />
+      <if br_name="eek_kids"  cond="=" test_value="2" store="PABE" />      
+    </inv_check_set>
+    
+    <inv_check_set cs_name="check_eek_kids_on_plane" result_event="onSelf" >
+      <if br_name="eek_kids"  cond="=" test_value="2" store="plane" />      
+    </inv_check_set>
+    
+    <inv_check_set cs_name="check_pack_kids_on_plane" result_event="onSelf" else_event="onFail" >
+      <if br_name="pack_kids"  cond="=" test_value="3" store="plane" />      
+    </inv_check_set>
+    
+    <inv_check_set cs_name="check_pack_kids_not_on_plane" result_event="onSelf" else_event="onFail" >
+      <if br_name="pack_kids"  cond="!=" test_value="3" store="plane" />      
+    </inv_check_set>
+    
+    
+    
+    
+    <!-- CheckSet DREF -->  
+    <!-- Set pilots Vertical Velocity to inoperative -->
+    <dref_check_set cs_name="check_fail_eng0" result_event="onSelf" else_event="" >
+      <if   dr_name="fail_oil_presure_0" cond="!=" test_value="6" />
+      <then dr_name="fail_oil_presure_0" new_value="6" />
+    </dref_check_set>
+    
+    
+    <dref_check_set cs_name="check_roll" result_event="onSelf" else_event="failRoll" >
+      <if   dr_name="roll_ratio" cond="lt;" test_value="34" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-34" />  <!--   -->
+      <!-- if   dr_name="gearForce" cond="=" test_value="0" />  <!-- on air  -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_roll2" result_event="onSelf" else_event="failRoll" >
+      <if   dr_name="roll_ratio" cond="lt;" test_value="25" />  <!--  -->
+      <if   dr_name="roll_ratio" cond="gt;" test_value="-25" />  <!--   -->
+      <!-- if   dr_name="gearForce" cond="=" test_value="0" />  <!-- on air  -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_pitch" result_event="onSelf" else_event="failPitch" >
+      <if   dr_name="pitch_ratio" cond="lt;" test_value="12" />  <!--  -->
+      <if   dr_name="pitch_ratio" cond="gt;" test_value="-12" />  <!--   -->
+      <!-- if   dr_name="gearForce" cond="=" test_value="0" />  <!-- on air  -->
+    </dref_check_set>
+    
+    <dref_check_set cs_name="check_mixture" result_event="onSelf" else_event="" >
+      <if   dr_name="mixture" cond="lt;" test_value="0.09" />  <!-- if mixture is set to 0 (zero)  -->
+    </dref_check_set>
+        
+    <dref_check_set cs_name="check_onGround_and_groundSpeed" result_event="onSelf" else_event="" >
+      <if   dr_name="gearForce" cond="!=" test_value="0" />  <!-- on ground, not zero  -->
+      <if   dr_name="ground_speed" cond="lt;" test_value="2" />  <!-- ground speed should be less then 5 -->
+    </dref_check_set>    
+    
+  </logic>
+   
+</MISSION>

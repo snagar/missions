@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MISSION version="200" name="Alaska_Mission_200" title="Alaska Mission (v206+)" stage="" >
+  <Header copyright="snagar"/>
+  <!-- 18jul2012 14:10 -->
+
+  <global_settings>
+    <dir custom_dir="alaska_01" sound_dir=""  />
+    <start_time days="201" hours="22" min="00" sec="0" />
+    <map file_name="map_alaska_01.jpg" width="894" height="430" />
+    <designer force_step_name="" />
+  </global_settings>
+
+  
+  
+<briefer id="0" lat="55.684" long="-132.533" elev_ft="1.0" heading="0" icao="PAKW" location_adjust="0" >
+    <desc><![CDATA[Hello;This mission was the first one I wrote for Mission-X plugin. It was a short proof of concept that a "mission" plugin was doable (by me).;;In this mission you will start in Klawock airport at lat/lon N'55.582 W'-133.069.;Please liste to the orders of the "radio" and start your adventure.;;
+    Special Instractions:;
+    =====================;
+Secenry:;
+* [must] You need Final Frontier Scenery (http://www.scenery4xp.com);
+* [must] OpenScenery X (http://www.opensceneryx.com/);;
+
+Rendering settings:;
+* [uncheck] runway follow terrain.;;
+
+Press the [Start Mission] button to start the mission.;Press the [Take me there] button to move your plane to the starting location.;;Have Fun...]]></desc>
+</briefer>
+
+
+  <steps>
+  
+    <step id="1" type="" name="first" title="Find Smith Cove (SJC)" next_step="find_joe" auto_msg="">
+     <step_goals>
+       <static_target id="1" lat="55.438" long="-132.342" elev_ft="1.0" need_to_land="1" success_distance_nm="0.8" success_elev_relative_ft="0" />
+     </step_goals>
+
+     <step_settings>
+       <step_desc>
+         <![CDATA[You need to reach Smith Cove (SJC).;;We have copied an emergency call from Mr.Smith. Go and check what he needs, it seems that the communication has been lost.;This is a sea plane mission.;Go to Nav N'55.440 W'-132.342 and see what can be done.]]>
+       </step_desc>  
+       
+       <payload id="1" weight="25"  operation="0" is_total="1" is_percent="1" />
+       <fuel    id="1" weight="25"  operation="0" is_total="1" is_percent="1" />
+       <fuel    id="2" weight="25"  operation="0" is_total="1" is_percent="1" />
+          
+     </step_settings>     
+     
+     <step_feedbacks>
+       <broadcast target_id="1" distance_to_broadcast="4.0" ><![CDATA[The Smith Cove is a nice resort for turist. It should have its own harbor.
+]]></broadcast> 
+     </step_feedbacks>          
+     
+    </step>
+
+
+   <step id="2" type="" name="find_joe" title="Find Joe" next_step="PAKT" auto_msg="">
+     <step_goals>
+       <static_target id="1" lat="55.358" long="-132.520" elev="1.0" need_to_land="1" success_distance_nm="0.1" success_elev_relative_ft="0" />
+
+     </step_goals>
+    
+    <step_settings>
+       <step_desc>
+         <![CDATA[Smith: Thank god someone heard my call, I thought my communications went down before the message went through. I need your help locating a friend (Joe) who went fishing but seemed to get injured, just don't ask me how he manged to do that. It is not a bad injury a broken or sprain leg I think. Please try to locate him SW from here, around 7 to 9 miles. I Think he is somewhere near the bank of POQ seaport, He likes to fish there. He has a red oar boat, keep low to locate it.;;After you find him please Fly to Ketchikan International, from there he will be taken to Ketchikan General Hospital.;;Good Luck and Thanks.]]>
+       </step_desc>  
+         
+     </step_settings>          
+     
+     <step_feedbacks>
+       <broadcast target_id="1" distance_to_broadcast="2.0" ><![CDATA[Its me smith: I think Joe should be around the POQ airport. He likes to fish North of it in the natural widening of the bay, just after the bend. Good Luck...]]></broadcast> 
+     </step_feedbacks>       
+     
+   </step>
+   
+   <!-- Take Joe to Ketchikan Intl -->
+   <step id="3" type="" name="PAKT" title="Ketchikan Intl" next_step="end" auto_msg="">
+     <step_goals>
+       <!-- static_target id="1" lat="55.355" long="-131.713" elev="0.8518" need_to_land="1" success_distance_nm="0.8" success_elev_relative_ft="0" / -->
+       <area_target name="Take Joe to safety" need_to_land="1" group_id="31" />
+
+     </step_goals>
+    
+    <step_settings>
+       <step_desc>
+         <![CDATA[Joe Says: Thanks for the help.;;I guess Smith is behind this. I believe our next stop is at Ketchikan Intl.;Lets Go then..., you looked at Joe while he sitted him self with a small bag of fishes. "What a smell" for a short ride...]]>
+       </step_desc>  
+         
+
+       <!-- Add 90kg to payload Joe's weight-->
+       <payload id="1" weight="90"  operation="1" is_total="0" is_percent="0" />
+
+     </step_settings>          
+     
+      <triggers>
+
+        <trigger_zone group_id="31" type="poly" rule="enter" fail_can_continue="1">
+          <trigger_rules>
+            <point    lat="55.349434" long="-131.700424" />
+            <point    lat="55.349766" long="-131.700974" />
+            <point    lat="55.350163" long="-131.700777" />
+            <point    lat="55.349735" long="-131.700211" />
+
+            
+
+          </trigger_rules>
+
+          <event id="1" name="onEnter">
+            <msg repeat="1" mute_voice="0" ><![CDATA[Good job, you reach the area near the emergency vehical where Joe will be taken to hospital. Park your plane and shut it down.;]]></msg>
+          </event>
+
+
+        </trigger_zone>
+        
+        <trigger_zone type="poly" rule="enter" fail_can_continue="1">
+          <trigger_rules>
+            <point    lat="55.3626483" long="-131.7269265" />
+            <point    lat="55.3632677" long="-131.7259360" />
+            <point    lat="55.3484216" long="-131.7005307" />
+            <point    lat="55.3478327" long="-131.7015927" />
+
+            <elev elev_ft="150.0" include_zone="below" />
+
+          </trigger_rules>
+
+          <event id="1" name="onEnter">
+            <msg repeat="1" mute_voice="0" ><![CDATA[The medics will wait near the yellow fire truck, at the end of runway 11.;]]></msg>
+          </event>
+
+
+        </trigger_zone>        
+      </triggers>      
+     
+     
+     <step_feedbacks>
+       <broadcast target_id="1" distance_to_broadcast="10.0" ><![CDATA[Its smith again: So how is that old fella is feeling? Tell him he owe me two trouts and a fishing pole. I will come to visit as soon as I finish fixing my damn boat. Thanks.]]></broadcast> 
+     </step_feedbacks>       
+
+      <step_rules>
+        <logic_for_success cs_name="check_onGround_groundSpeed_and_mixture" repeat="1" />
+        
+        <event id="1" name="onSuccess" >
+          <msg id="1"><![CDATA[The medicks helped Joe to the wheel chair, and while speaking on the weather forcast Joe took a herring and gave one for each.;]]></msg>       
+        </event>
+        
+      </step_rules>  
+     
+   </step>
+   
+
+    <!-- Finishing Words -->
+   <step id="9999" type="" name="end" >
+     <step_goals>
+       <static_target id="1" lat="55.355" long="-131.713" elev="0.8518" need_to_land="1" success_distance_nm="0.8" success_elev_relative_ft="0" />
+     </step_goals>
+    
+    <step_settings>
+       <step_desc>
+         <![CDATA[You have finished Alaska's first Mission and Mission-X first test mission;For any feedback, please send me an e-mail, snagar.org.;;Snagar]]>
+       </step_desc>  
+         
+      <step_info_widget display_on="success" file_name="alaska_end_info.png" width="341" height="256"><![CDATA[Joe is in good hands now, and you can stop at the dinner to eat some fish and relax.;Interesting day, you think...;;]]></step_info_widget>		
+        
+     </step_settings> 
+     </step>
+
+  </steps>
+  
+  <logic>    
+    <dataref dr_name="mixture"  key="sim/cockpit2/engine/actuators/mixture_ratio_all"  />
+    <dataref dr_name="ground_speed"  key="sim/flightmodel/position/groundspeed"  />  <!-- The ground speed of the aircraft -->
+    <dataref dr_name="gearForce"  key="sim/flightmodel/forces/faxil_gear"  />
+
+        
+    <dref_check_set cs_name="check_onGround_groundSpeed_and_mixture" result_event="onSelf" else_event="" >
+      <if   dr_name="gearForce" cond="!=" test_value="0" />  <!-- on ground, not zero  -->
+      <if   dr_name="ground_speed" cond="lt;" test_value="2" />  <!-- ground speed should be less then 5 -->
+      <if   dr_name="mixture" cond="lt;" test_value="0.09" />  <!-- if mixture is set to 0 (zero)  -->
+    </dref_check_set>     
+  
+  </logic>
+  
+</MISSION>
