@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MISSION version="200" name="HamburgerFlightAlsaka_200" title="Hamburger Flight Alaska 01" stage="" >
+  <Header copyright="snagar"/>
+
+  <global_settings>
+    <start_time days="-1" hours="22" min="00" sec="0" />
+    <dir custom_dir="hamburger01" sound_dir="sound"  />
+    <map file_name="AlaskaMap01.bmp" width="759" height="490" />
+    <designer force_step_name="" />
+  </global_settings>
+  
+  <!-- Chefornak PACK -->
+  <briefer lat="59.463421" long="-135.309296" elev_ft="48.16" heading="225" icao="PAGY" location_adjust="1" >
+	  <desc>
+<![CDATA[$100 Hamburger Flight - The Inside Passage;;All rights belong to: Mark Stewart;FSBEAK.COM;FLIGHTSIMCRAZY.COM;;Ported by Saar N (Snagar);;[Qoute];Home of the midnight sun, narrow passages, high mountains, quaint towns and some of the most beautiful scenery in the world.;It is also home to some of the most skilled aviators in the world;the Alaskan Bush Pilot.;
+It is a place often so remote that if your plane goes down, your children's children might be the one's that are told they found your aircraft.;		
+I have had the privilege of visiting all but one of today's stops and have traveled the whole length of inside passage from Vancouver Island north.;
+It is one of the reasons I bring you this Hamburger Flight and share my passion for flying in this area to you the listener.;
+This flight will introduce you to flying some of the northern section of the Inside Passage. It is likely 90 minutes of flying depending on the performance of the aircraft.;
+[End Quote]
+;;X-Plane settings:;
+Weather: Set weather to real world.;
+Aircraft: Single or Twin Engine.;
+;;
+Have a great Hamburger Flight...;]]>    
+    </desc>
+  </briefer>  
+
+   <!-- ///////////// steps   / steps   / steps   //////////////////////////// --> 
+	
+  <steps>
+
+    <!-- First Stop PAHN -->
+    <step id="1" name="first" title="PAHN" next_step="PAOH" auto_msg="" >
+        <step_goals>
+          <!-- static_target id="1" name="pahn airport" lat="59.243793" long="-135.523605" need_to_land="1" success_distance_nm="0.4" success_elev_relative_ft="0.0" / -->
+          <area_target id="1" name="pahn airport" group_id="11" need_to_land="1" />
+        </step_goals> 
+        
+        <step_settings>      
+
+          <step_desc>
+            <![CDATA[You have a buddy that is in town from the lower states.;He is staying in Haines on business. Fly over from Skagway, pick him;]]>
+            
+          </step_desc>  
+   
+          <step_feedbacks>
+            <broadcast id="1" target_id="1" distance_to_broadcast="14.0"  >[<![CDATA[I hope you brought a present for you buddy, it is his birthday you know... ;]]>
+            </broadcast>
+          </step_feedbacks>
+          
+          <map file_name="AlaskaMap01.bmp" width="759" height="490" />
+          
+        </step_settings>
+        
+        <triggers>
+          <trigger_zone name="droopy1" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.454140" long="-135.349960" />
+              <point    lat="59.445412" long="-135.330826" />
+              <point    lat="59.438873" long="-135.333832" />
+              <point    lat="59.445946" long="-135.357864" />
+
+              
+
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="droopy.mp3" sound_vol="0.3" mute_voice="1"  ></msg>
+            </event>
+
+
+          </trigger_zone>
+           
+          <trigger_zone name="droopy2" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.225147" long="-135.465439" />
+              <point    lat="59.236919" long="-135.500168" />
+              <point    lat="59.239986" long="-135.495499" />
+              <point    lat="59.239193" long="-135.449982" />
+             
+              <elev elev_ft="800" include_zone="below" />
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="droopy.mp3" sound_vol="0.3" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>          
+          
+          <trigger_zone name="droopy3" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.244965" long="-135.540543" />
+              <point    lat="59.251549" long="-135.567780" />
+              <point    lat="59.255817" long="-135.558563" />
+              <point    lat="59.247833" long="-135.536209" />
+             
+              <elev elev_ft="300" include_zone="below" />
+
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="droopy.mp3" sound_vol="0.3" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>          
+          
+          <trigger_zone group_id="11" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.246155" long="-135.533264" />
+              <point    lat="59.246449" long="-135.534851" />
+              <point    lat="59.246964" long="-135.534485" />
+              <point    lat="59.246292" long="-135.530884" />
+              <point    lat="59.246487" long="-135.530746" />
+              <point    lat="59.246113" long="-135.528748" />
+              <point    lat="59.245895" long="-135.528900" />
+              <point    lat="59.245701" long="-135.527725" />
+              <point    lat="59.245132" long="-135.528137" />
+              <!-- point    lat="59.246155" long="-135.533264" / -->
+
+
+            </trigger_rules>
+<!--
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="suddenly_2009.mp3" sound_vol="0.3" mute_voice="1"  ></msg>
+            </event>
+-->
+
+          </trigger_zone>
+          
+        </triggers>
+    
+    </step>
+
+    
+      <!-- Second Stop PAOH -->
+    <step id="2" name="PAOH" title="" next_step="PAJN" auto_msg="" >
+        <step_goals>
+          <!-- static_target id="1" name="paoh airport" lat="58.097733" long="-135.405106" need_to_land="1" success_distance_nm="0.4" success_elev_relative_ft="0.0" /  -->
+          <area_target id="1" name="paoh airport" group_id="21" need_to_land="1" />
+          
+        </step_goals> 
+        
+        <step_settings>      
+
+          <step_desc>
+            <![CDATA[After short conversation and some pats on the backs, your buddy anounces that he needs somthing juicy to eat.;After describing him your options, you decided to go and eat a Hamburger in Hoonah.; Head to Hoonah airport.]]>
+            
+          </step_desc>  
+   
+          <step_feedbacks>
+            <broadcast id="1" target_id="1" distance_to_broadcast="3.0"  >[<![CDATA[Your buddy wonders how the Hamburgers in Hoonah...;]]>
+            </broadcast>
+          </step_feedbacks>
+          
+          <map file_name="AlaskaMap02.bmp" width="679" height="512" />
+          
+        </step_settings>
+        
+        
+        <triggers>
+          
+          <trigger_zone name="second_thoughts01" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.058098" long="-135.490845" />
+              <point    lat="58.067490" long="-135.505539" />
+              <point    lat="58.087898" long="-135.453323" />
+              <point    lat="58.079063" long="-135.416916" />
+             
+              <elev elev_ft="1700" include_zone="below" />
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="second_thoughts.mp3" sound_vol="0.27" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>           
+          
+          
+          <trigger_zone group_id="21" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.097073" long="-135.405502" />
+              <point    lat="58.096920" long="-135.405838" />
+              <point    lat="58.097374" long="-135.406586" />
+              <point    lat="58.098171" long="-135.404846" />
+              <point    lat="58.097614" long="-135.404175" />
+              <point    lat="58.097389" long="-135.404663" />
+              <point    lat="58.097496" long="-135.404846" />
+              <point    lat="58.097202" long="-135.405487" />
+              <!-- point    lat="58.097073" long="-135.405502" /  -->
+
+
+
+            </trigger_rules>
+<!--
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="" sound_vol="0.3" mute_voice="1"  ></msg>
+            </event>
+-->
+
+          </trigger_zone>        
+        </triggers>
+        
+    
+    </step>
+
+
+      <!-- Third Stop PAJN -->
+    <step id="3" name="PAJN" title="" next_step="PAGY" auto_msg="" >
+        <step_goals>
+          <!-- static_target id="1" name="PAJN airport" lat="58.354946" long="-134.576355" need_to_land="1" success_distance_nm="0.42" success_elev_relative_ft="0.0" /  -->
+          <area_target id="1" name="PAJN airport" group_id="31" need_to_land="1" />
+          
+        </step_goals> 
+        
+        <step_settings>      
+
+          <step_desc>
+            <![CDATA[After pickinga juicy Humburger it is about time to take your buddy to the international airport so he can grab his flight back south.]]>         
+
+          </step_desc>  
+   
+          <step_feedbacks>
+            <broadcast id="1" target_id="1" distance_to_broadcast="8.0"  >[<![CDATA["The airport is near" you anounce. "There is always more room to another hamburger" your buddy smiled. "We will stop at Gate 3", you inform your friend.]]>
+            </broadcast>
+          </step_feedbacks>
+          
+          <map file_name="AlaskaMap03.bmp" width="1024" height="512" />
+          
+        </step_settings>
+        
+        <triggers>
+          
+          <trigger_zone name="second_thoughts01" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.058098" long="-135.490845" />
+              <point    lat="58.067490" long="-135.505539" />
+              <point    lat="58.087898" long="-135.453323" />
+              <point    lat="58.079063" long="-135.416916" />
+             
+              <elev elev_ft="1700" include_zone="below" />
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="second_thoughts.mp3" sound_vol="0.27" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>             
+          
+          <trigger_zone name="second_thoughts02" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.097874" long="-135.395432" />
+              <point    lat="58.102036" long="-135.402100" />
+              <point    lat="58.115250" long="-135.380692" />
+              <point    lat="58.096138" long="-135.339279" />
+              
+              <elev elev_ft="850" include_zone="below" />
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="second_thoughts.mp3" sound_vol="0.27" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>   
+
+          <trigger_zone name="Sunspray_double" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.383705" long="-134.656479" />
+              <point    lat="58.361259" long="-134.743256" />
+              <point    lat="58.333767" long="-134.507095" />
+              <point    lat="58.348576" long="-134.486938" />
+             
+              <elev elev_ft="1400" include_zone="below" />
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="Sunspray_double.mp3" sound_vol="0.275" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>             
+          
+   
+          <trigger_zone group_id="31" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.358768" long="-134.584641" />
+              <point    lat="58.358891" long="-134.585114" />
+              <point    lat="58.359074" long="-134.584885" />
+              <point    lat="58.359108" long="-134.584595" />
+              <point    lat="58.359093" long="-134.584534" />
+              <point    lat="58.358929" long="-134.584457" />
+
+            </trigger_rules>
+<!--
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="" sound_vol="0.3" mute_voice="1"  ></msg>
+            </event>
+-->
+
+          </trigger_zone>   
+
+
+
+          <trigger_zone name="taxi to gate 3" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="58.359184" long="-134.596924" />
+              <point    lat="58.353439" long="-134.554672" />
+              <point    lat="58.351662" long="-134.555557" />
+              <point    lat="58.357494" long="-134.597794" />
+
+
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="" sound_vol="0.3" mute_voice="0"  ><![CDATA[Remember to taxi to Gate 3, between the two parking airliners.;]]></msg>
+            </event>
+
+
+          </trigger_zone>   
+          
+        </triggers>        
+        
+        <step_rules>
+            <logic_for_success cs_name="check_onGround_and_groundSpeed" repeat="1" />
+        </step_rules>
+    
+    </step>
+      
+
+      
+    <!-- Forth Stop PAGY -->
+    <step id="4" name="PAGY" title="" next_step="end" auto_msg="" >
+        <step_goals>
+          <!-- static_target id="1" name="PAGY airport" lat="59.460072" long="-135.315597" need_to_land="1" success_distance_nm="0.42" success_elev_relative_ft="0.0" /  -->
+          <area_target id="1" name="PAJN airport" group_id="41" need_to_land="1" />
+
+        </step_goals> 
+        
+        <step_settings>      
+
+          <step_desc>
+            <![CDATA[After your buddy has finished his second humburger on your planes leather seats, he thanked you for a great time and depart to his flight.;;Alone and seated in your plane, you can head back to Skagway airport.;Remember to park and shutdown your plane (cut off mixture);;Take care; ]]>
+          </step_desc>  
+   
+          <step_feedbacks>
+            <broadcast id="1" target_id="1" distance_to_broadcast="8.0"  >[<![CDATA[The airport is near, Time for last preparations...]]>
+            </broadcast>
+          </step_feedbacks>
+          
+          <map file_name="AlaskaMap04.bmp" width="512" height="512" />
+          
+        </step_settings>
+        
+        <triggers>  
+          <trigger_zone name="End Area PAGY" group_id="41" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.455780" long="-135.321732" />
+              <point    lat="59.455349" long="-135.320938" />
+              <point    lat="59.454865" long="-135.321945" />
+              <point    lat="59.455235" long="-135.322723" />
+
+
+
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="" sound_vol="0.3" mute_voice="0"  ><![CDATA[Turn off the engine and prepare the plane for the night.; You have enough time to prepare yourself for your date. !!]]></msg>
+            </event>
+
+
+          </trigger_zone>   
+          
+          <trigger_zone name="Inform of place of ending mission" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.454140" long="-135.349960" />
+              <point    lat="59.445412" long="-135.330826" />
+              <point    lat="59.438873" long="-135.333832" />
+              <point    lat="59.445946" long="-135.357864" />
+             
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="" sound_vol="0.3" mute_voice="0"  ><![CDATA[Remember to park your plane near the fuel hangar, It is near runway 02.;]]></msg>
+            </event>
+
+          </trigger_zone>
+
+          <trigger_zone name="mellow01" group_id="" type="poly" rule="enter" fail_can_continue="1">
+            <trigger_rules>
+              <point    lat="59.264748" long="-135.371750" />
+              <point    lat="59.290382" long="-135.405838" />
+              <point    lat="59.438774" long="-135.371094" />
+              <point    lat="59.438129" long="-135.323013" />
+              
+
+            </trigger_rules>
+
+            <event id="1" name="onEnter">
+              <msg repeat_every_visit="0" sound_file="mellow.mp3" sound_vol="0.33" mute_voice="1"  ></msg>
+            </event>
+
+          </trigger_zone>  
+                    
+        </triggers>          
+        
+        
+      <step_rules>
+        <logic_for_success cs_name="check_mixture" repeat="1" />      
+        <logic_for_success cs_name="check_onGround_and_groundSpeed" repeat="1" />
+        
+        <!--
+        <event id="1" name="onSuccess" >
+          <msg id="1"><![CDATA[]]></msg>       
+        </event>
+        -->
+      </step_rules>  
+        
+    
+    </step>
+      
+
+      
+        
+        <!-- Finish -->
+        
+    <!-- End in PAGY -->
+    <step id="9999" name="end" title="" next_step="" auto_msg="" >
+        <step_goals>
+          <static_target id="1" name="PAGY airport" lat="59.460072" long="-135.315597" need_to_land="1" success_distance_nm="0.42" success_elev_relative_ft="0.0" />
+        </step_goals> 
+        
+        <step_settings>      
+
+          <step_desc>
+            <![CDATA[You have finished $100 Hamburger Flight - Alaska;;Written by Mark Stewart;; Ported By Saar N ( Snagar ) to Mission-X ]]>
+          </step_desc> 
+            
+          <step_info_widget display_on="success" file_name="hamburger_end_01.png" width="176" height="224"><![CDATA[You finish your tour and your hamburger.;;]]></step_info_widget>		
+            
+          
+        </step_settings>
+    
+    </step>
+
+		
+  </steps>
+
+  
+  <!-- /////////////// logic   / logic   / logic   //////////////////////////// -->
+  <logic>
+
+    <param name="kcrw_rw_status" value="0"  />  
+  
+    <dataref dr_name="mixture"  key="sim/cockpit2/engine/actuators/mixture_ratio_all"  />
+
+    <dataref dr_name="ground_speed"  key="sim/flightmodel/position/groundspeed"  />  <!-- The ground speed of the aircraft -->
+    <dataref dr_name="gearForce"  key="sim/flightmodel/forces/faxil_gear"  />
+	
+   
+    <!-- Inventory Check -->  
+   
+    
+    <!-- CheckSet DREF -->  
+    
+    <dref_check_set cs_name="check_mixture" result_event="onSelf" else_event="" >
+      <if   dr_name="mixture" cond="lt;" test_value="0.09" />  <!-- if mixture is set to 0 (zero)  -->
+    </dref_check_set>
+        
+    <dref_check_set cs_name="check_onGround_and_groundSpeed" result_event="onSelf" else_event="" >
+      <if   dr_name="gearForce" cond="!=" test_value="0" />  <!-- on ground, not zero  -->
+      <if   dr_name="ground_speed" cond="lt;" test_value="3" />  <!-- ground speed should be less then 3 -->
+    </dref_check_set>    
+    
+  </logic>
+	
+</MISSION>
+	
